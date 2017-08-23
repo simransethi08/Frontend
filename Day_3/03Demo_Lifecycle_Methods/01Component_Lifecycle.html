@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script type="text/babel">
+            // function Clock(props){
+            //     return (
+            //             <div>
+            //                 <h1>Time:- </h1>
+            //                 <h2>It is {props.date.toLocaleTimeString()}.</h2>
+            //             </div>
+            //     )
+            // }
+
+            // function tick(){                
+            //         ReactDOM.render(<Clock date={new Date()}/>,
+            //         document.getElementById('container'));                    
+            // }
+
+            // setInterval(tick,1000);
+
+            class Clock extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {date: new Date()};
+                }
+                componentDidMount(){
+                    /*set up the timer*/
+                    this.timeID = setInterval(() => this.myTick(),1000);
+                }
+                componentWillUnmount(){
+                    clearInterval(this.timeID);
+                }
+                myTick(){
+                    this.setState({date:new Date()});
+                }
+                render(){
+                    return(
+                        <div>
+                            <h1>Time:- </h1>
+                            <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                        </div>
+                    )
+                }
+            }
+
+            ReactDOM.render(<Clock />,
+                     document.getElementById('container'));                
+    </script>
+</body>
+
+</html>

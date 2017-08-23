@@ -1,0 +1,19 @@
+.makeRight{
+    text-align: right;
+    font-size: x-large;
+    color:peachpuff;
+    background-color: maroon;
+}
+
+.makeCenter{
+    text-align: center;
+    color: navy;    
+}
+
+#simpleDiv{
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    padding-top: 150px;
+    font-size: xx-large;
+}

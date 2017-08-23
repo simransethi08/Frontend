@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .check{
+                color:brown;
+                font-size: xx-large;
+            }
+        </style>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+    </head>
+    <body>
+        <div id='container'></div>        
+        <script>
+            // var h1 = React.DOM.h1({
+            //     'id':'hOne'
+            // },'Hello World!');
+
+            // var h1 = React.createElement('h1',{
+            //     'id':'hOne'
+            // },'Hello Universe!');
+
+            // ReactDOM.render(h1,
+            // document.getElementById('container'));
+            
+            var ul = React.createElement('ul',{
+                'id':'ul1'
+            },React.createElement('li',{
+                'id':'li1'
+            },React.createElement('p',{
+                'id':'p1',
+                'className':'check'
+            },'This is paragraph inside li inside ul!')));
+
+            ReactDOM.render(ul,
+            document.getElementById('container'));
+        </script>
+    </body>
+</html>

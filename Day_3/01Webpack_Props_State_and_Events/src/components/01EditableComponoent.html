@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'></script>
+</head>
+
+<body>
+    <!-- <input type="text" id="input1" value="Default Value" />  -->
+    <!-- document.getElementById('input1').getAttribute('value')
+         document.getElementById('input1').value
+        attributes are prive whereas props are public  -->
+    <div id='container'></div>
+    <script type='text/babel'>
+            class Main extends React.Component{
+                constructor(){
+                    super();
+                    this.state = {name:'Sachin Tendulkar'}
+                    this.handleChange = this.handleChange.bind(this);
+                     this.handleClick = this.handleClick.bind(this);
+                }
+
+                handleChange(evt){
+                    this.setState({name:evt.target.value});
+                }
+
+                handleClick(){
+                    console.log(this.refs.t1.value);
+                    this.refs.t1.value = "Default";
+                    this.refs.t1.focus();
+                }
+                render(){
+                    return (
+                        <div>
+                            <input type="text" /><br/>
+                            <input type="text" defaultValue="Rahul Dravid"/><br/>
+                            <input type="text" value="Saurav"/><br/>
+                             
+                            {/*Controlled Component - recommended*/}                            
+                            <input type="text" value={this.state.name}
+                            onChange={this.handleChange}/><br/>
+                            <h1>{this.state.name}</h1>
+
+                            {/*Uncontrolled Component*/}
+                            <input type="text" ref="t1"/><br/>
+                            <button onClick={this.handleClick}>Get</button>
+                        </div>
+                    )
+                }
+            }
+
+            ReactDOM.render(<Main/>,
+                document.getElementById('container'));
+    </script>
+</body>
+
+</html>

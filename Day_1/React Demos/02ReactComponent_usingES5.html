@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+</head>
+
+<body>
+    <div id='container'></div>
+    <script>
+        //    var Hello = React.createClass({
+        //         render: function(){
+        //             return React.createElement('h1',{
+        //                 'id':'hOne'
+        //             },'Hello World - ES5!')
+        //         }
+        //    });
+
+        //     ReactDOM.render(React.createElement(Hello),
+        //     document.getElementById('container'));
+
+        var ItemsList = React.createClass({
+            render: function () {
+                return React.createElement('ul', null,
+                    React.createElement('li', null, 'Home'),
+                    React.createElement('li', null, 'About Us'),
+                    React.createElement('li', null, 'Contact Us'), )
+            }
+        });
+
+        ReactDOM.render(React.createElement(ItemsList),
+            document.getElementById('container'));
+    </script>
+</body>
+
+</html>

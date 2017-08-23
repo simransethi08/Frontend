@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+        <script type="text/babel">
+            class Main extends React.Component{
+                constructor(){
+                    super();
+                    this.state = { data: 0 };
+                    console.log("Main Component ---- Constructor");
+                }                
+                change(){
+                    this.setState({data: this.state.data+1});
+                }
+                /*componentWillUnmount(){
+                    console.error("MainComponent ---- Will Unmount");
+                }*/
+                render(){
+                    console.log("Main Component ---- Render");
+                    return (
+                        <div>
+                            <button onClick={this.change.bind(this)}>
+                                Change
+                            </button>
+                            <SubComponent value={this.state.data}>
+                            </SubComponent>
+                        </div>
+                    );
+                }
+            }
+
+            class SubComponent extends React.Component{
+                
+                componentWillMount()
+                {
+                    console.log("SubComponent ---- Will Mount");
+                }
+
+                componentDidMount()
+                {
+                    console.log("SubComponent ---- Did Mount");
+                }
+             
+                componentWillReceiveProps(newProps)
+                {
+                    console.info("SubComponent ---- Will Recieve Props ");
+                    console.log(newProps)
+                }
+                shouldComponentUpdate(newProps, newState)
+                {
+                console.info("SubComponent ---- Should Component Update");
+                    console.log(newProps)
+                    /*console.log(newState)*/
+                    return true;
+                    /*return false;*/ /*here no call for will update and did update - as returning false*/
+                }
+    
+                componentWillUpdate(newProps,newState)
+                {   
+                    console.info("SubComponent ---- Will Update");
+                }
+
+                componentDidUpdate(prevProps,prevState)
+                {
+                    console.info("SubComponent ---- Did Update");
+                }
+
+                componentWillUnmount(){
+                    console.error("SubComponent ---- Will Unmount");
+                }
+
+                render()
+                {
+                    return (
+                        <div>
+                            <h3>{this.props.value}</h3>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<Main />, 
+            document.getElementById("container"));
+
+            setTimeout(function(){
+                ReactDOM.unmountComponentAtNode(
+                    document.getElementById("container"));
+            },5000);
+        </script>
+    </body>
+</html>

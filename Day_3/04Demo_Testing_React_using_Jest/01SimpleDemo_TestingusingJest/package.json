@@ -1,0 +1,14 @@
+{
+  "name": "simple_testing_using_jest",
+  "version": "1.0.0",
+  "description": "Testing react.js appln using jest",
+  "main": "sum.js",
+  "scripts": {
+    "test": "jest just.test.js --coverage"
+  },
+  "author": "Abhijeet D Gole",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'></script>
+</head>
+
+<body>
+    <div id='container'></div>
+    <script type='text/babel'>
+    
+    const user = {
+        firstName:'Sachin',
+        lastName:'Tendulkar'
+    }
+
+    const element= (
+        <h1>
+            Sum of 4 and 5 is {4+5}!<br/>
+            Multiplication of 4 and 5 is {4*5}!<br/>
+            Welcome {user.firstName+' '+user.lastName}
+            <p tabIndex='0'>Simple Para</p>
+        </h1>
+    )
+    
+    ReactDOM.render(element,
+    document.getElementById('container'));
+    </script>
+</body>
+
+</html>

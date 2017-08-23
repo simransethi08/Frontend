@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple React Program!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+</head>
+
+<body>
+    <div id='react-container'></div>
+    <script type="text/babel">
+    {/*Just to check the o/p*/}
+       class CheckboxWithLabel extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {isChecked: false};
+                this.onChange = this.onChange.bind(this);
+            }
+
+            onChange() {
+                this.setState({isChecked: !this.state.isChecked});
+            }
+
+            render() {
+                return (
+                <label>
+                    <input
+                    type="checkbox"
+                    checked={this.state.isChecked}
+                    onChange={this.onChange}
+                    />
+                    {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
+                </label>
+                );
+            }
+        }
+
+        ReactDOM.render(<CheckboxWithLabel labelOn="On" labelOff="Off"/>,
+        document.getElementById('react-container'))
+    </script>
+</body>
+
+</html>

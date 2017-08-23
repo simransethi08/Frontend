@@ -1,0 +1,24 @@
+{
+  "name": "dom_testing_using_enzyme",
+  "version": "1.0.0",
+  "description": "Testing Dom using Enzyme",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Abhijeet D Gole",
+  "license": "ISC",
+  "dependencies": {
+    "react": "~15.3.1",
+    "react-dom": "~15.3.1"
+  },
+  "devDependencies": {
+    "babel-jest": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "enzyme": "~2.4.1",
+    "jest": "*",
+    "react-addons-test-utils": "15.3.2",
+    "regenerator-runtime": "*"
+  }
+}
